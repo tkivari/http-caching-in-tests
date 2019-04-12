@@ -16,6 +16,7 @@ Some downsides of this approach include
 
 - the fixture files aren't easily shared between application instances. For example, when we push our branches remotely, the tests are run on individual instances that don't share files. This means that all instances are going to generate their own fixtures by making the HTTP requests. The test suite will run faster locally, but won't run quickly remotely unless we create a shared file system that each instance can use.
 - the fixture files never expire, so we will never get a fresh response from the API unless we manually go in and delete the fixture files, or run a cron job to continually do so.
+- As far as I have found, it is not possible to tell Nock which HTTP requests to intercept and which ones to ignore, so ALL requests in our tests would be intercepted and cached, including calls to our own API, which may not be ideal. We could probably work around this issue but there doesn't seem to be an easy way to do this.
 
 ### 3. Caching HTTP responses with Redis - test/3.server.redis.test
 
