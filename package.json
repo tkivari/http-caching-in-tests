@@ -1,0 +1,24 @@
+{
+  "name": "api_testing",
+  "version": "1.0.0",
+  "description": "Demo for testing APIs with mocha & nock",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha $(find test -name '*.test.js') --exit",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "express": "^4.16.4",
+    "mocha": "^6.0.2",
+    "nock": "^10.0.6",
+    "nock-back-mocha": "^1.0.4",
+    "node": "^11.13.0",
+    "redis": "^2.8.0",
+    "sanitize-filename": "^1.6.1"
+  }
+}
