@@ -8,12 +8,9 @@ app.get("/api/v1/pokemon/:pokemon", async (req, res) => {
   let data
   let code = 200
   let success = true
-  let start = +new Date()
-  let end = 0
 
   try {
     data = await pokeLib.getPokemon(req.params.pokemon)
-    end = +new Date()
   } catch (e) {
     console.log(e)
     code = 500
@@ -23,7 +20,6 @@ app.get("/api/v1/pokemon/:pokemon", async (req, res) => {
 
   res.status(code).send({
     success,
-    time: end - start,
     code,
     data,
   })

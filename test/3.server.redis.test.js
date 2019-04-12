@@ -22,7 +22,8 @@ describe("tests endpoint without API caching", () => {
      * This approach is the most robust because we are able to cache responses.
      * We could use a shared Redis instance across multiple instances of the app (e.g. on our test
      * environment), and periodically invalidate our cache and force the API calls to be made
-     * in a controlled way, for example, once every 24 hours.
+     * in a controlled way, for example, once every 24 hours.  Retrieving cached data from Redis
+     * is also about twice as fast as reading it from a file (approx 16ms vs approx 30ms).
      *
      * When using Redis, you have to make sure that the keys you select for your cache are
      * unique.  When you accidentally duplicate a key name, your data will get messed up!
